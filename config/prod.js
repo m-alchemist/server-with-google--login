@@ -1,0 +1,7 @@
+//PRODUCTION KEYS
+module.exports={
+  GOOGLECLIENTID:proccess.env.GOOGLE_CLIENT_ID,
+  GOOGLECLIENTSECRET:proccess.env.GOOGLE_CLIENT_SECRET,
+  MONGOURI:proccess.env.MONGO_URI,
+  COOKIEKEY:proccess.env.COOKIE_KEY
+}
