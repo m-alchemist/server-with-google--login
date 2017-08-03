@@ -25,7 +25,8 @@ passport.use(new GoogleStrategy({
   ///client ID and client secret must be gain from api data
   clientID:keys.GOOGLECLIENTID,
   clientSecret:keys.GOOGLECLIENTSECRET,
-callbackURL:'/auth/google/callback'},(accessToken,refreshToken,profile,done)=>{
+callbackURL:'/auth/google/callback',
+proxy:'true'},(accessToken,refreshToken,profile,done)=>{
 //using mongoose we check if user exists
 //if so get the information
 //if not then make a new user a save
