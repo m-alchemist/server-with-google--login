@@ -1,9 +1,11 @@
 
 const passport=require('passport');
-app.get('/',(req,res)=>{
-  res.send('hello':'world')
-})
+
 module.exports=(app)=>{
+
+  app.get('/',(req,res)=>{
+    res.send({'hello':'world'});
+  });
   app.get('/auth/google',passport.authenticate('google',{
     scope:['profile','email']
   })
