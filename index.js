@@ -4,7 +4,7 @@ const keys = require("./config/keys");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
 const bodyParser = require("body-parser");
-
+const path = require("path");
 const PORT = process.env.PORT || 5000;
 const app = express();
 mongoose.connect(keys.MONGOURI);
@@ -41,5 +41,15 @@ app.use(passport.session());
 //much cleaner code
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
+
+if (process.env.NODE_ENV == "production") {
+  //express will serve up production assests (main.js and main.css)
+  app.use(express.static("client/build"));
+  //express will serve up the index.HTML file if route is not recognized
+
+  app.get("*", (req, res) => {
+    res.send(path.resolve(__dirname, "client", "build", index.HTML));
+  });
+}
 app.listen(PORT);
 console.log("listening on " + PORT);
