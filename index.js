@@ -48,7 +48,7 @@ if (process.env.NODE_ENV == "production") {
   //express will serve up the index.HTML file if route is not recognized
 
   app.get("*", (req, res) => {
-    res.send(path.resolve(__dirname, "client", "build", index.html));
+    res.sendFile(path.resolve(__dirname, "client", "build", index.html));
   });
 }
 app.listen(PORT);
