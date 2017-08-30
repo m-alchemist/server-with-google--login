@@ -10,6 +10,7 @@ mongoose.connect(keys.MONGOURI);
 
 //importing the model for the user
 require("./models/user");
+require("./models/survey");
 //importing the passport file with all the passport wiring up ie strategies and all
 require("./services/passport");
 
@@ -40,7 +41,7 @@ app.use(passport.session());
 //much cleaner code
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
-
+require("./routes/surveyRoutes")(app);
 if (process.env.NODE_ENV == "production") {
   //express will serve up production assests (main.js and main.css)
   app.use(express.static("client/build"));
